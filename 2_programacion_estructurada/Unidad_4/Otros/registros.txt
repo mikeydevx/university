@@ -1,0 +1,4 @@
+Fecha del reporte: 14/07/2026
+Latencias: 50 20 14 9 6 8 7 5 10 8 9 20 25 30 5 5 5 5 4 5 5 6 6 8 
+Promedio: 11, Pico: 50, Horas estables: 24
+
