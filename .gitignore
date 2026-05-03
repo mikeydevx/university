@@ -1,0 +1,5 @@
+# Ejecutables compilados
+*.exe
+
+# Carpetas llamadas ejecutables en cualquier parte del proyecto
+ejecutables/
