@@ -4,6 +4,8 @@
  */
 package Ejercicio_15_CodigoBarras;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mavel
