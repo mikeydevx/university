@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sintaxis Java para Examen</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --surface: #ffffff;
+      --ink: #17202a;
+      --muted: #5f6c7b;
+      --line: #d9e1e8;
+      --accent: #1769aa;
+      --accent-strong: #0f4f82;
+      --code-bg: #101820;
+      --code-ink: #eef6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 1px 8px rgba(23, 32, 42, 0.08);
+    }
+
+    .topbar {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0;
+      display: grid;
+      grid-template-columns: 1fr minmax(220px, 360px);
+      gap: 16px;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.15;
+    }
+
+    .subtitle {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 11px 12px;
+      font-size: 15px;
+      color: var(--ink);
+      background: #fbfcfd;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 24px auto 48px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    nav {
+      position: sticky;
+      top: 92px;
+      max-height: calc(100vh - 112px);
+      overflow: auto;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    nav a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: var(--accent-strong);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: #e8f1f8;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 21px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fbfcfd;
+    }
+
+    .card h3 {
+      margin: 0;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: var(--accent-strong);
+      border-bottom: 1px solid var(--line);
+      background: #edf4f9;
+    }
+
+    pre {
+      margin: 0;
+      padding: 14px;
+      overflow-x: auto;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      font-size: 13px;
+      line-height: 1.45;
+      tab-size: 4;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .note {
+      margin: 0;
+      padding: 10px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .empty {
+      display: none;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        position: static;
+        max-height: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div>
+        <h1>Sintaxis Java para Examen</h1>
+        <p class="subtitle">Formulas puras ordenadas por tema: fundamentos, POO, colecciones, excepciones y GUI.</p>
+      </div>
+      <input class="search" id="search" type="search" placeholder="Buscar: if, array, JFrame, lista...">
+    </div>
+  </header>
+
+  <main>
+    <nav aria-label="Indice de temas">
+      <a href="#estructura">1. Estructura basica</a>
+      <a href="#variables">2. Variables y tipos</a>
+      <a href="#operadores">3. Operadores</a>
+      <a href="#condicionales">4. Condicionales</a>
+      <a href="#ciclos">5. Ciclos</a>
+      <a href="#switch">6. Switch</a>
+      <a href="#metodos">7. Metodos</a>
+      <a href="#arreglos">8. Arreglos y matrices</a>
+      <a href="#colecciones">9. Colecciones</a>
+      <a href="#poo">10. POO basica</a>
+      <a href="#encapsulamiento">11. Encapsulamiento</a>
+      <a href="#herencia">12. Herencia</a>
+      <a href="#polimorfismo">13. Polimorfismo</a>
+      <a href="#interfaces">14. Interfaces y abstract</a>
+      <a href="#entrada-salida">15. Entrada y salida</a>
+      <a href="#fechas">16. Fechas y reloj</a>
+      <a href="#excepciones">17. Excepciones</a>
+      <a href="#uml">18. UML rapido</a>
+      <a href="#swing-basico">19. Swing basico</a>
+      <a href="#componentes-gui">20. Componentes GUI</a>
+      <a href="#listas-formularios">21. Listas y formularios</a>
+      <a href="#emergencia-gui">22. Emergencia GUI</a>
+    </nav>
+
+    <div class="content" id="content">
+      <p class="empty" id="empty">No se encontraron formulas con ese texto.</p>
+
+      <section id="estructura" data-topic="estructura basica package import class main">
+        <h2>1. Estructura Basica</h2>
+        <div class="cards">
+          <article class="card" data-search="package paquete">
+            <h3>Paquete</h3>
+            <pre><code>package nombre_paquete;</code></pre>
+            <p class="note">Declaracion de paquete.</p>
+          </article>
+          <article class="card" data-search="import libreria clase">
+            <h3>Importacion</h3>
+            <pre><code>import paquete.Clase;</code></pre>
+            <p class="note">Uso de una clase externa.</p>
+          </article>
+          <article class="card" data-search="class clase public">
+            <h3>Clase</h3>
+            <pre><code>public class NombreClase {
+    instrucciones;
+}</code></pre>
+            <p class="note">Estructura de clase.</p>
+          </article>
+          <article class="card" data-search="main metodo principal">
+            <h3>Metodo main</h3>
+            <pre><code>public static void main(String[] args) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Punto de inicio.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="variables" data-topic="variables tipos declaracion asignacion constante atributos">
+        <h2>2. Variables Y Tipos</h2>
+        <div class="cards">
+          <article class="card" data-search="declaracion variable tipo">
+            <h3>Declarar variable</h3>
+            <pre><code>Tipo nombreVariable;</code></pre>
+            <p class="note">Variable sin valor inicial.</p>
+          </article>
+          <article class="card" data-search="asignacion variable valor">
+            <h3>Asignar variable</h3>
+            <pre><code>Tipo nombreVariable = valor;</code></pre>
+            <p class="note">Variable con valor inicial.</p>
+          </article>
+          <article class="card" data-search="constante final static">
+            <h3>Constante</h3>
+            <pre><code>private static final Tipo NOMBRE_CONSTANTE = valor;</code></pre>
+            <p class="note">Valor fijo.</p>
+          </article>
+          <article class="card" data-search="atributo private">
+            <h3>Atributo privado</h3>
+            <pre><code>private Tipo nombreAtributo;</code></pre>
+            <p class="note">Dato de una clase.</p>
+          </article>
+          <article class="card" data-search="this atributo objeto">
+            <h3>Usar this</h3>
+            <pre><code>this.atributo = valor;</code></pre>
+            <p class="note">Atributo del objeto actual.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="operadores" data-topic="operadores conversiones comparacion logicos parse casting">
+        <h2>3. Operadores Y Conversiones</h2>
+        <div class="cards">
+          <article class="card" data-search="comparacion relacionales">
+            <h3>Comparaciones</h3>
+            <pre><code>valorA == valorB
+valorA != valorB
+valorA &gt; valorB
+valorA &lt; valorB
+valorA &gt;= valorB
+valorA &lt;= valorB</code></pre>
+            <p class="note">Operadores relacionales.</p>
+          </article>
+          <article class="card" data-search="operadores logicos and or not">
+            <h3>Operadores logicos</h3>
+            <pre><code>condicionA &amp;&amp; condicionB
+condicionA || condicionB
+!condicion</code></pre>
+            <p class="note">Combinar condiciones.</p>
+          </article>
+          <article class="card" data-search="incremento decremento acumulador contador">
+            <h3>Contador y acumulador</h3>
+            <pre><code>contador++;
+contador--;
+acumulador += valor;</code></pre>
+            <p class="note">Operaciones frecuentes.</p>
+          </article>
+          <article class="card" data-search="parse int double conversion">
+            <h3>Texto a numero</h3>
+            <pre><code>int entero = Integer.parseInt(texto);
+double decimal = Double.parseDouble(texto);</code></pre>
+            <p class="note">Conversion desde String.</p>
+          </article>
+          <article class="card" data-search="string valueof conversion">
+            <h3>Valor a texto</h3>
+            <pre><code>String texto = String.valueOf(valor);</code></pre>
+            <p class="note">Conversion a String.</p>
+          </article>
+          <article class="card" data-search="casting conversion tipo">
+            <h3>Casting</h3>
+            <pre><code>Tipo variable = (Tipo) valor;</code></pre>
+            <p class="note">Conversion explicita.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="condicionales" data-topic="condicionales if else string equals">
+        <h2>4. Condicionales</h2>
+        <div class="cards">
+          <article class="card" data-search="if condicional simple">
+            <h3>If</h3>
+            <pre><code>if (condicion) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Condicional simple.</p>
+          </article>
+          <article class="card" data-search="if else">
+            <h3>If else</h3>
+            <pre><code>if (condicion) {
+    instrucciones;
+} else {
+    instrucciones;
+}</code></pre>
+            <p class="note">Dos caminos.</p>
+          </article>
+          <article class="card" data-search="else if">
+            <h3>Else if</h3>
+            <pre><code>if (condicion) {
+    instrucciones;
+} else if (otraCondicion) {
+    instrucciones;
+} else {
+    instrucciones;
+}</code></pre>
+            <p class="note">Varias condiciones.</p>
+          </article>
+          <article class="card" data-search="string equals comparar cadenas">
+            <h3>Comparar String</h3>
+            <pre><code>cadenaA.equals(cadenaB)
+cadenaA.equalsIgnoreCase(cadenaB)</code></pre>
+            <p class="note">Comparacion de texto.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="ciclos" data-topic="ciclos for while do while foreach">
+        <h2>5. Ciclos</h2>
+        <div class="cards">
+          <article class="card" data-search="for contador">
+            <h3>For</h3>
+            <pre><code>for (int i = inicio; i &lt; limite; i++) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Repeticion con contador.</p>
+          </article>
+          <article class="card" data-search="while condicion">
+            <h3>While</h3>
+            <pre><code>while (condicion) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Repite mientras se cumpla.</p>
+          </article>
+          <article class="card" data-search="do while">
+            <h3>Do while</h3>
+            <pre><code>do {
+    instrucciones;
+} while (condicion);</code></pre>
+            <p class="note">Ejecuta al menos una vez.</p>
+          </article>
+          <article class="card" data-search="foreach for each">
+            <h3>For-each</h3>
+            <pre><code>for (Tipo elemento : coleccion) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Recorrido por elementos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="switch" data-topic="switch case break default">
+        <h2>6. Switch</h2>
+        <div class="cards">
+          <article class="card" data-search="switch case default break">
+            <h3>Estructura switch</h3>
+            <pre><code>switch (variable) {
+    case valor:
+        instrucciones;
+        break;
+    case otroValor:
+        instrucciones;
+        break;
+    default:
+        instrucciones;
+        break;
+}</code></pre>
+            <p class="note">Seleccion por casos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="metodos" data-topic="metodos void retorno parametros static return">
+        <h2>7. Metodos</h2>
+        <div class="cards">
+          <article class="card" data-search="metodo void">
+            <h3>Metodo void</h3>
+            <pre><code>public void nombreMetodo() {
+    instrucciones;
+}</code></pre>
+            <p class="note">Metodo sin retorno.</p>
+          </article>
+          <article class="card" data-search="metodo retorno return">
+            <h3>Metodo con retorno</h3>
+            <pre><code>public Tipo nombreMetodo() {
+    return valor;
+}</code></pre>
+            <p class="note">Metodo que devuelve valor.</p>
+          </article>
+          <article class="card" data-search="metodo parametros">
+            <h3>Metodo con parametros</h3>
+            <pre><code>public Tipo nombreMetodo(Tipo parametro) {
+    instrucciones;
+    return valor;
+}</code></pre>
+            <p class="note">Recibe datos.</p>
+          </article>
+          <article class="card" data-search="metodo static">
+            <h3>Metodo static</h3>
+            <pre><code>public static Tipo nombreMetodo() {
+    return valor;
+}</code></pre>
+            <p class="note">Pertenece a la clase.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="arreglos" data-topic="arreglos arrays matrices indices length">
+        <h2>8. Arreglos Y Matrices</h2>
+        <div class="cards">
+          <article class="card" data-search="arreglo declaracion array">
+            <h3>Declarar arreglo</h3>
+            <pre><code>Tipo[] nombreArreglo;</code></pre>
+            <p class="note">Referencia a arreglo.</p>
+          </article>
+          <article class="card" data-search="arreglo new tamano">
+            <h3>Crear arreglo</h3>
+            <pre><code>Tipo[] nombreArreglo = new Tipo[tamano];</code></pre>
+            <p class="note">Arreglo con tamano fijo.</p>
+          </article>
+          <article class="card" data-search="arreglo indice">
+            <h3>Acceso por indice</h3>
+            <pre><code>nombreArreglo[indice] = valor;
+variable = nombreArreglo[indice];</code></pre>
+            <p class="note">Leer y escribir.</p>
+          </article>
+          <article class="card" data-search="recorrer arreglo length">
+            <h3>Recorrer arreglo</h3>
+            <pre><code>for (int i = 0; i &lt; nombreArreglo.length; i++) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Recorrido por indices.</p>
+          </article>
+          <article class="card" data-search="matriz bidimensional">
+            <h3>Matriz</h3>
+            <pre><code>Tipo[][] matriz = new Tipo[filas][columnas];
+matriz[fila][columna] = valor;</code></pre>
+            <p class="note">Arreglo bidimensional.</p>
+          </article>
+          <article class="card" data-search="recorrer matriz doble for">
+            <h3>Recorrer matriz</h3>
+            <pre><code>for (int fila = 0; fila &lt; matriz.length; fila++) {
+    for (int columna = 0; columna &lt; matriz[fila].length; columna++) {
+        instrucciones;
+    }
+}</code></pre>
+            <p class="note">Doble recorrido.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="colecciones" data-topic="colecciones arraylist add get remove size">
+        <h2>9. Colecciones</h2>
+        <div class="cards">
+          <article class="card" data-search="arraylist import">
+            <h3>Importar ArrayList</h3>
+            <pre><code>import java.util.ArrayList;</code></pre>
+            <p class="note">Libreria de listas dinamicas.</p>
+          </article>
+          <article class="card" data-search="arraylist crear">
+            <h3>Crear ArrayList</h3>
+            <pre><code>ArrayList&lt;Tipo&gt; lista = new ArrayList&lt;&gt;();</code></pre>
+            <p class="note">Lista dinamica.</p>
+          </article>
+          <article class="card" data-search="arraylist add get remove size">
+            <h3>Operaciones basicas</h3>
+            <pre><code>lista.add(elemento);
+elemento = lista.get(indice);
+lista.remove(indice);
+int tamano = lista.size();</code></pre>
+            <p class="note">Agregar, obtener, quitar y contar.</p>
+          </article>
+          <article class="card" data-search="recorrer arraylist for">
+            <h3>Recorrer ArrayList</h3>
+            <pre><code>for (int i = 0; i &lt; lista.size(); i++) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Recorrido por indice.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="poo" data-topic="poo clase objeto new constructor this">
+        <h2>10. POO Basica</h2>
+        <div class="cards">
+          <article class="card" data-search="constructor vacio">
+            <h3>Constructor vacio</h3>
+            <pre><code>public NombreClase() {
+    instrucciones;
+}</code></pre>
+            <p class="note">Crea objeto sin parametros.</p>
+          </article>
+          <article class="card" data-search="constructor parametros this">
+            <h3>Constructor con parametros</h3>
+            <pre><code>public NombreClase(Tipo parametro) {
+    this.atributo = parametro;
+}</code></pre>
+            <p class="note">Inicializa atributos.</p>
+          </article>
+          <article class="card" data-search="objeto instancia new">
+            <h3>Crear objeto</h3>
+            <pre><code>NombreClase nombreObjeto = new NombreClase();</code></pre>
+            <p class="note">Instancia de clase.</p>
+          </article>
+          <article class="card" data-search="llamar metodo objeto">
+            <h3>Llamar metodo</h3>
+            <pre><code>nombreObjeto.nombreMetodo();</code></pre>
+            <p class="note">Uso de objeto.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="encapsulamiento" data-topic="encapsulamiento private getter setter">
+        <h2>11. Encapsulamiento</h2>
+        <div class="cards">
+          <article class="card" data-search="getter get return">
+            <h3>Getter</h3>
+            <pre><code>public Tipo getAtributo() {
+    return this.atributo;
+}</code></pre>
+            <p class="note">Obtiene un atributo.</p>
+          </article>
+          <article class="card" data-search="setter set this">
+            <h3>Setter</h3>
+            <pre><code>public void setAtributo(Tipo atributo) {
+    this.atributo = atributo;
+}</code></pre>
+            <p class="note">Modifica un atributo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="herencia" data-topic="herencia extends super padre hija">
+        <h2>12. Herencia</h2>
+        <div class="cards">
+          <article class="card" data-search="extends">
+            <h3>Extends</h3>
+            <pre><code>public class ClaseHija extends ClasePadre {
+    instrucciones;
+}</code></pre>
+            <p class="note">Clase hija.</p>
+          </article>
+          <article class="card" data-search="super constructor padre">
+            <h3>Constructor padre</h3>
+            <pre><code>public ClaseHija(Tipo parametro) {
+    super(parametro);
+    instrucciones;
+}</code></pre>
+            <p class="note">Llamada a superclase.</p>
+          </article>
+          <article class="card" data-search="protected herencia">
+            <h3>Atributo protected</h3>
+            <pre><code>protected Tipo atributo;</code></pre>
+            <p class="note">Visible para herencia.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="polimorfismo" data-topic="polimorfismo override sobrecarga padre hijo">
+        <h2>13. Polimorfismo</h2>
+        <div class="cards">
+          <article class="card" data-search="referencia padre objeto hijo">
+            <h3>Referencia padre-hijo</h3>
+            <pre><code>ClasePadre objeto = new ClaseHija();</code></pre>
+            <p class="note">Polimorfismo por herencia.</p>
+          </article>
+          <article class="card" data-search="override sobrescritura">
+            <h3>Sobrescritura</h3>
+            <pre><code>@Override
+public Tipo nombreMetodo() {
+    return valor;
+}</code></pre>
+            <p class="note">Redefinir metodo heredado.</p>
+          </article>
+          <article class="card" data-search="sobrecarga parametros">
+            <h3>Sobrecarga</h3>
+            <pre><code>public Tipo nombreMetodo(Tipo parametro) {
+    return valor;
+}
+
+public Tipo nombreMetodo(Tipo parametroA, Tipo parametroB) {
+    return valor;
+}</code></pre>
+            <p class="note">Mismo nombre, parametros distintos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="interfaces" data-topic="interfaces abstract implements abstract class metodo abstracto">
+        <h2>14. Interfaces Y Abstract</h2>
+        <div class="cards">
+          <article class="card" data-search="interface">
+            <h3>Interface</h3>
+            <pre><code>public interface NombreInterface {
+    Tipo nombreMetodo();
+}</code></pre>
+            <p class="note">Contrato de metodos.</p>
+          </article>
+          <article class="card" data-search="implements">
+            <h3>Implements</h3>
+            <pre><code>public class NombreClase implements NombreInterface {
+    public Tipo nombreMetodo() {
+        return valor;
+    }
+}</code></pre>
+            <p class="note">Cumplir una interfaz.</p>
+          </article>
+          <article class="card" data-search="abstract class">
+            <h3>Clase abstracta</h3>
+            <pre><code>public abstract class NombreClase {
+    instrucciones;
+}</code></pre>
+            <p class="note">Clase base incompleta.</p>
+          </article>
+          <article class="card" data-search="metodo abstracto">
+            <h3>Metodo abstracto</h3>
+            <pre><code>public abstract Tipo nombreMetodo();</code></pre>
+            <p class="note">Metodo sin cuerpo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="entrada-salida" data-topic="entrada salida scanner system out joptionpane">
+        <h2>15. Entrada Y Salida</h2>
+        <div class="cards">
+          <article class="card" data-search="scanner import entrada">
+            <h3>Scanner</h3>
+            <pre><code>Scanner scanner = new Scanner(System.in);
+Tipo variable = scanner.metodoLectura();</code></pre>
+            <p class="note">Entrada por consola.</p>
+          </article>
+          <article class="card" data-search="scanner next nextline nextint nextdouble">
+            <h3>Lecturas comunes</h3>
+            <pre><code>String texto = scanner.nextLine();
+int entero = scanner.nextInt();
+double decimal = scanner.nextDouble();</code></pre>
+            <p class="note">Metodos de Scanner.</p>
+          </article>
+          <article class="card" data-search="system out print println">
+            <h3>Salida en consola</h3>
+            <pre><code>System.out.print(valor);
+System.out.println(valor);</code></pre>
+            <p class="note">Imprimir datos.</p>
+          </article>
+          <article class="card" data-search="joptionpane input">
+            <h3>JOptionPane entrada</h3>
+            <pre><code>String texto = JOptionPane.showInputDialog(mensaje);</code></pre>
+            <p class="note">Entrada grafica.</p>
+          </article>
+          <article class="card" data-search="joptionpane message">
+            <h3>JOptionPane salida</h3>
+            <pre><code>JOptionPane.showMessageDialog(null, mensaje);</code></pre>
+            <p class="note">Mensaje grafico.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="fechas" data-topic="fechas reloj date simpledateformat thread sleep">
+        <h2>16. Fechas Y Reloj</h2>
+        <div class="cards">
+          <article class="card" data-search="date fecha">
+            <h3>Fecha actual</h3>
+            <pre><code>Date fecha = new Date();</code></pre>
+            <p class="note">Objeto de fecha.</p>
+          </article>
+          <article class="card" data-search="simpledateformat">
+            <h3>Formato de fecha</h3>
+            <pre><code>SimpleDateFormat formato = new SimpleDateFormat(patron);
+String texto = formato.format(fecha);</code></pre>
+            <p class="note">Fecha a texto.</p>
+          </article>
+          <article class="card" data-search="thread run">
+            <h3>Clase Thread</h3>
+            <pre><code>class NombreHilo extends Thread {
+    public void run() {
+        instrucciones;
+    }
+}</code></pre>
+            <p class="note">Hilo basico.</p>
+          </article>
+          <article class="card" data-search="sleep pausa">
+            <h3>Pausa de hilo</h3>
+            <pre><code>try {
+    Thread.sleep(milisegundos);
+} catch (InterruptedException ex) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Espera controlada.</p>
+          </article>
+          <article class="card" data-search="reloj jlabel while true">
+            <h3>Reloj en JLabel</h3>
+            <pre><code>class reloj extends Thread {
+    public void run() {
+        while (true) {
+            Date fecha = new Date();
+            SimpleDateFormat formato = new SimpleDateFormat(patron);
+            jLabel.setText(formato.format(fecha));
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                instrucciones;
+            }
+        }
+    }
+}</code></pre>
+            <p class="note">Formula de reloj.</p>
+          </article>
+          <article class="card" data-search="start iniciar hilo">
+            <h3>Iniciar hilo</h3>
+            <pre><code>NombreHilo hilo = new NombreHilo();
+hilo.start();</code></pre>
+            <p class="note">Arranque del hilo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="excepciones" data-topic="excepciones try catch finally throw throws">
+        <h2>17. Excepciones</h2>
+        <div class="cards">
+          <article class="card" data-search="try catch">
+            <h3>Try catch</h3>
+            <pre><code>try {
+    instrucciones;
+} catch (TipoExcepcion ex) {
+    manejoDelError;
+}</code></pre>
+            <p class="note">Manejo de errores.</p>
+          </article>
+          <article class="card" data-search="multi catch">
+            <h3>Multi-catch</h3>
+            <pre><code>try {
+    instrucciones;
+} catch (ExcepcionA | ExcepcionB ex) {
+    manejoDelError;
+}</code></pre>
+            <p class="note">Varios errores posibles.</p>
+          </article>
+          <article class="card" data-search="finally">
+            <h3>Finally</h3>
+            <pre><code>try {
+    instrucciones;
+} catch (TipoExcepcion ex) {
+    manejoDelError;
+} finally {
+    instruccionesFinales;
+}</code></pre>
+            <p class="note">Bloque final.</p>
+          </article>
+          <article class="card" data-search="throw lanzar excepcion">
+            <h3>Throw</h3>
+            <pre><code>throw new TipoExcepcion(mensaje);</code></pre>
+            <p class="note">Lanzar excepcion.</p>
+          </article>
+          <article class="card" data-search="throws metodo">
+            <h3>Throws</h3>
+            <pre><code>public void nombreMetodo() throws TipoExcepcion {
+    instrucciones;
+}</code></pre>
+            <p class="note">Declarar posible excepcion.</p>
+          </article>
+          <article class="card" data-search="excepcion personalizada">
+            <h3>Excepcion personalizada</h3>
+            <pre><code>public class NombreExcepcion extends Exception {
+    public NombreExcepcion(String mensaje) {
+        super(mensaje);
+    }
+}</code></pre>
+            <p class="note">Crear tipo de error.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="uml" data-topic="uml clase atributos metodos visibilidad herencia asociacion">
+        <h2>18. UML Rapido</h2>
+        <div class="cards">
+          <article class="card" data-search="uml clase atributos metodos">
+            <h3>Clase UML</h3>
+            <pre><code>NombreClase
+----------------
+- atributo: Tipo
+----------------
++ metodo(): Tipo</code></pre>
+            <p class="note">Estructura de clase.</p>
+          </article>
+          <article class="card" data-search="uml visibilidad public private protected">
+            <h3>Visibilidad</h3>
+            <pre><code>+ publico
+- privado
+# protegido</code></pre>
+            <p class="note">Simbolos de acceso.</p>
+          </article>
+          <article class="card" data-search="uml herencia">
+            <h3>Herencia UML</h3>
+            <pre><code>ClaseHija --|&gt; ClasePadre</code></pre>
+            <p class="note">Relacion de herencia.</p>
+          </article>
+          <article class="card" data-search="uml asociacion">
+            <h3>Asociacion UML</h3>
+            <pre><code>ClaseA -- ClaseB</code></pre>
+            <p class="note">Relacion entre clases.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="swing-basico" data-topic="swing basico jframe jlabel jtextfield jbutton eventos">
+        <h2>19. Swing Basico</h2>
+        <div class="cards">
+          <article class="card" data-search="jframe ventana">
+            <h3>JFrame</h3>
+            <pre><code>public class NombreVentana extends javax.swing.JFrame {
+    public NombreVentana() {
+        initComponents();
+    }
+}</code></pre>
+            <p class="note">Ventana Swing.</p>
+          </article>
+          <article class="card" data-search="jlabel settext">
+            <h3>JLabel</h3>
+            <pre><code>jLabel.setText(texto);</code></pre>
+            <p class="note">Cambiar etiqueta.</p>
+          </article>
+          <article class="card" data-search="jtextfield get set limpiar">
+            <h3>JTextField</h3>
+            <pre><code>String texto = jTextField.getText();
+jTextField.setText(texto);
+jTextField.setText("");</code></pre>
+            <p class="note">Leer, escribir y limpiar.</p>
+          </article>
+          <article class="card" data-search="jbutton action performed">
+            <h3>Evento de boton</h3>
+            <pre><code>private void botonActionPerformed(java.awt.event.ActionEvent evt) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Accion de boton.</p>
+          </article>
+          <article class="card" data-search="actionlistener evento">
+            <h3>ActionListener</h3>
+            <pre><code>ActionListener escucha = new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+        instrucciones;
+    }
+};</code></pre>
+            <p class="note">Escucha de evento.</p>
+          </article>
+          <article class="card" data-search="mostrar ventana invoke later">
+            <h3>Mostrar ventana</h3>
+            <pre><code>java.awt.EventQueue.invokeLater(() -&gt; new NombreVentana().setVisible(true));</code></pre>
+            <p class="note">Ejecucion de interfaz.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="componentes-gui" data-topic="componentes gui combobox radiobutton checkbox textarea table">
+        <h2>20. Componentes GUI</h2>
+        <div class="cards">
+          <article class="card" data-search="jcombobox selected item">
+            <h3>JComboBox</h3>
+            <pre><code>Object elemento = jComboBox.getSelectedItem();
+jComboBox.addItem(elemento);</code></pre>
+            <p class="note">Seleccion desplegable.</p>
+          </article>
+          <article class="card" data-search="jradiobutton isselected">
+            <h3>JRadioButton</h3>
+            <pre><code>if (jRadioButton.isSelected()) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Opcion seleccionada.</p>
+          </article>
+          <article class="card" data-search="buttongroup radio group">
+            <h3>ButtonGroup</h3>
+            <pre><code>ButtonGroup grupo = new ButtonGroup();
+grupo.add(jRadioButton);</code></pre>
+            <p class="note">Agrupar radios.</p>
+          </article>
+          <article class="card" data-search="jcheckbox isselected">
+            <h3>JCheckBox</h3>
+            <pre><code>if (jCheckBox.isSelected()) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Casilla marcada.</p>
+          </article>
+          <article class="card" data-search="jtextarea get set append">
+            <h3>JTextArea</h3>
+            <pre><code>String texto = jTextArea.getText();
+jTextArea.setText(texto);
+jTextArea.append(texto);</code></pre>
+            <p class="note">Area de texto.</p>
+          </article>
+          <article class="card" data-search="jtable defaulttablemodel">
+            <h3>JTable modelo</h3>
+            <pre><code>DefaultTableModel modelo = new DefaultTableModel();
+jTable.setModel(modelo);</code></pre>
+            <p class="note">Modelo de tabla.</p>
+          </article>
+          <article class="card" data-search="jtable add row">
+            <h3>Agregar fila a JTable</h3>
+            <pre><code>modelo.addRow(new Object[]{valorA, valorB});</code></pre>
+            <p class="note">Insertar fila.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="listas-formularios" data-topic="jlist defaultlistmodel formularios pasar datos listas ventanas">
+        <h2>21. Listas Y Formularios</h2>
+        <div class="cards">
+          <article class="card" data-search="defaultlistmodel jlist setmodel">
+            <h3>Modelo para JList</h3>
+            <pre><code>DefaultListModel modelo = new DefaultListModel();
+jList.setModel(modelo);</code></pre>
+            <p class="note">Preparar lista.</p>
+          </article>
+          <article class="card" data-search="jlist add remove selected">
+            <h3>Operaciones JList</h3>
+            <pre><code>modelo.addElement(elemento);
+Object elemento = jList.getSelectedValue();
+modelo.removeElement(elemento);</code></pre>
+            <p class="note">Agregar, obtener y quitar.</p>
+          </article>
+          <article class="card" data-search="abrir formulario setvisible">
+            <h3>Abrir formulario</h3>
+            <pre><code>NombreFormulario ventana = new NombreFormulario();
+ventana.setVisible(true);</code></pre>
+            <p class="note">Mostrar otra ventana.</p>
+          </article>
+          <article class="card" data-search="cerrar formulario dispose">
+            <h3>Cerrar formulario</h3>
+            <pre><code>this.dispose();</code></pre>
+            <p class="note">Cerrar ventana actual.</p>
+          </article>
+          <article class="card" data-search="pasar dato constructor formulario">
+            <h3>Recibir dato por constructor</h3>
+            <pre><code>public FormularioDestino(Tipo dato) {
+    initComponents();
+    this.dato = dato;
+}</code></pre>
+            <p class="note">Formulario con parametro.</p>
+          </article>
+          <article class="card" data-search="enviar dato formulario constructor">
+            <h3>Enviar dato a formulario</h3>
+            <pre><code>FormularioDestino ventana = new FormularioDestino(dato);
+ventana.setVisible(true);</code></pre>
+            <p class="note">Abrir con informacion.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="emergencia-gui" data-topic="emergencia gui validar listas mover reloj formulario examen">
+        <h2>22. Emergencia Examen GUI</h2>
+        <div class="cards">
+          <article class="card" data-search="validar campo vacio isempty trim">
+            <h3>Validar campo vacio</h3>
+            <pre><code>if (jTextField.getText().trim().isEmpty()) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Revision rapida.</p>
+          </article>
+          <article class="card" data-search="quitar seleccionado indice">
+            <h3>Quitar seleccionado</h3>
+            <pre><code>int indice = jList.getSelectedIndex();
+if (indice &gt;= 0) {
+    modelo.remove(indice);
+}</code></pre>
+            <p class="note">Eliminar por indice.</p>
+          </article>
+          <article class="card" data-search="pasar elemento lista origen destino">
+            <h3>Pasar elemento entre listas</h3>
+            <pre><code>Object elemento = jListOrigen.getSelectedValue();
+if (elemento != null) {
+    modeloDestino.addElement(elemento);
+    modeloOrigen.removeElement(elemento);
+}</code></pre>
+            <p class="note">Mover seleccion.</p>
+          </article>
+          <article class="card" data-search="pasar toda lista modelo clear">
+            <h3>Pasar toda una lista</h3>
+            <pre><code>for (int i = 0; i &lt; modeloOrigen.getSize(); i++) {
+    modeloDestino.addElement(modeloOrigen.getElementAt(i));
+}
+modeloOrigen.clear();</code></pre>
+            <p class="note">Mover todos los elementos.</p>
+          </article>
+          <article class="card" data-search="pasar lista otro formulario">
+            <h3>Pasar lista a otro formulario</h3>
+            <pre><code>public FormularioDestino(DefaultListModel modelo) {
+    initComponents();
+    jList.setModel(modelo);
+}</code></pre>
+            <p class="note">Recibir modelo de lista.</p>
+          </article>
+          <article class="card" data-search="abrir formulario con lista">
+            <h3>Abrir formulario con lista</h3>
+            <pre><code>FormularioDestino ventana = new FormularioDestino(modelo);
+ventana.setVisible(true);</code></pre>
+            <p class="note">Enviar lista.</p>
+          </article>
+          <article class="card" data-search="confirm dialog salir">
+            <h3>Confirmar accion</h3>
+            <pre><code>int opcion = JOptionPane.showConfirmDialog(null, mensaje);
+if (opcion == JOptionPane.YES_OPTION) {
+    instrucciones;
+}</code></pre>
+            <p class="note">Confirmacion de usuario.</p>
+          </article>
+          <article class="card" data-search="reloj rapido jlabel">
+            <h3>Reloj rapido</h3>
+            <pre><code>Date fecha = new Date();
+SimpleDateFormat formato = new SimpleDateFormat(patron);
+jLabel.setText(formato.format(fecha));</code></pre>
+            <p class="note">Actualizar hora o fecha.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const search = document.querySelector("#search");
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const sections = Array.from(document.querySelectorAll("section"));
+    const empty = document.querySelector("#empty");
+
+    function normalize(text) {
+      return text
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function filterCards() {
+      const query = normalize(search.value.trim());
+      let visibleCards = 0;
+
+      cards.forEach((card) => {
+        const text = normalize(card.textContent + " " + card.dataset.search);
+        const isVisible = query === "" || text.includes(query);
+        card.classList.toggle("hidden", !isVisible);
+        if (isVisible) visibleCards += 1;
+      });
+
+      sections.forEach((section) => {
+        const visible = Array.from(section.querySelectorAll(".card"))
+          .some((card) => !card.classList.contains("hidden"));
+        section.classList.toggle("hidden", !visible);
+      });
+
+      empty.style.display = visibleCards === 0 ? "block" : "none";
+    }
+
+    search.addEventListener("input", filterCards);
+  </script>
+</body>
+</html>
