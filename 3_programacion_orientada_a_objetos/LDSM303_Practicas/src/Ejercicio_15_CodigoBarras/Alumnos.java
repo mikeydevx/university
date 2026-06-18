@@ -58,16 +58,7 @@ public class Alumnos {
     }
     
     
-    public void llenar(){
-        
-    }
-
-    public String mostrarDatos() {
-        return this.getMatricula() + "     "
-                + this.getNombre() + "     "
-                + this.getPrimerApellido() + "     "
-                + this.getSegundoApellido();
-    }
+   
     
     
 }
