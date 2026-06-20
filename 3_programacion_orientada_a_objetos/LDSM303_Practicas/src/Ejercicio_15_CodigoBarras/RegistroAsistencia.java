@@ -37,13 +37,11 @@ public class RegistroAsistencia extends javax.swing.JFrame {
         datos[2] = new Alumnos("25000232", "Jose de Jesus", "Nicasio", "Torres");
         datos[3] = new Alumnos("25002100", "Miguel Angel", "Diosdado", "Caudillo");
         datos[4] = new Alumnos("25001407", "Edma Ximena", "Palacios", "Villafana");
-    }
-    
-    public RegistroAsistencia(Alumnos [] datos) {
-        initComponents();
         this.setLocationRelativeTo(null);
         this.datos = datos;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
