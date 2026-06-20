@@ -4,7 +4,11 @@
  */
 package Ejercicio_15_CodigoBarras;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,6 +18,7 @@ public class RegistroAsistencia extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(RegistroAsistencia.class.getName());
     Alumnos [] datos = new Alumnos [5];
+    Image foto; 
 
     /**
      * Creates new form RegistroAsistencia
@@ -21,6 +26,12 @@ public class RegistroAsistencia extends javax.swing.JFrame {
     public RegistroAsistencia() {
         initComponents();
         this.setLocationRelativeTo(null);
+        jTextField2.setEditable(false);
+        jTextField2.setFocusable(false);
+        jTextField3.setEditable(false);
+        jTextField3.setFocusable(false);
+        jTextField4.setEditable(false);
+        jTextField4.setFocusable(false);
         datos[0] = new Alumnos("25000942", "Miguel Angel", "Velazquez", "Zamilpa");
         datos[1] = new Alumnos("25000221", "Joanna Berenice", "Duran", "Zuniga");
         datos[2] = new Alumnos("25000232", "Jose de Jesus", "Nicasio", "Torres");
@@ -89,6 +100,7 @@ public class RegistroAsistencia extends javax.swing.JFrame {
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 200, -1));
 
         jTextField2.setEditable(false);
+        jTextField2.addActionListener(this::jTextField2ActionPerformed);
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 390, -1));
 
         jTextField3.setEditable(false);
@@ -115,20 +127,23 @@ public class RegistroAsistencia extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     public void mostrar(String m){
-        for(int i = 0; i < datos.length; i++){
-            if(datos[i] != null && datos[i].getMatricula().equals(m)){
+        boolean encontrado = false;
+        for(int i = 0; i < 5; i++){
+            if(datos[i].getMatricula().equals(m)){
                 this.jTextField2.setText(datos[i].getNombre());
                 this.jTextField3.setText(datos[i].getPrimerApellido());
                 this.jTextField4.setText(datos[i].getSegundoApellido());
+                foto = Toolkit.getDefaultToolkit().getImage("./src/personas2/" + this.jTextField1.getText() + ".jpg");
+                this.jLabel6.setIcon(new ImageIcon(foto.getScaledInstance(200, 210, 0)));
+                encontrado = true; 
             }
         }
-    }
-
-    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER){
-            mostrar(this.jTextField1.getText());
+        
+        if (encontrado==false) {
+            JOptionPane.showMessageDialog(null, "No esta en la lista");
         }
     }
+    
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         if(evt.getKeyChar()>= '0' && evt.getKeyChar()<='9'){
@@ -137,6 +152,16 @@ public class RegistroAsistencia extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            mostrar(this.jTextField1.getText());
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+      
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments

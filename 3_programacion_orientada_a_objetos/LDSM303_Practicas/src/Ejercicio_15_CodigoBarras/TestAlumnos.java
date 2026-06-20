@@ -12,8 +12,6 @@ import java.io.IOException;
  */
 public class TestAlumnos {
     public static void main(String[] args) throws IOException {
-        
-        
         RegistroAsistencia formulario = new RegistroAsistencia();
         formulario.setVisible(true);
         
