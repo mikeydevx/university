@@ -79,3 +79,24 @@ SELECT COUNT(*) FROM CLIENTES WHERE NOT colonia='CENTRO';
 
 #Consulta 27
 SELECT * FROM CLIENTES WHERE a_pat LIKE '%R%' AND nombre LIKE 'A%';
+
+#Consulta 28
+SELECT * FROM CLIENTES WHERE cp BETWEEN 70000 AND 80000 AND NOT ciudad='Ciudad de México';
+
+#Consulta 29
+SELECT COUNT(*) FROM CLIENTES WHERE nombre LIKE 'J%' OR  nombre LIKE 'M%'; 
+
+#Consulta 30
+SELECT ciudad, COUNT(*) AS Total_clientes FROM clientes GROUP BY ciudad HAVING Total_clientes <=  3;
+
+#Consulta 31
+SELECT estado, COUNT(*) AS Total_clientes FROM clientes GROUP BY estado HAVING COUNT(*)=3;
+
+#Consulta 32
+SELECT a_pat, COUNT(*) AS Total_Ocurrencias FROM clientes GROUP BY a_pat HAVING COUNT(*)>=2 ORDER BY COUNT(*);
+
+#Consulta 33
+SELECT colonia, COUNT(*) FROM clientes GROUP BY colonia HAVING COUNT(*)>5;
+
+#Consulta 34 
+SELECT ciudad, COUNT(*) FROM clientes WHERE f_nac >= '1975-01-01' AND f_nac < '1976-01-01' GROUP BY ciudad; 

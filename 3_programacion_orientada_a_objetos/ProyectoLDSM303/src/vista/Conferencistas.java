@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import modelo.Conferencista;
 
 /**
@@ -18,6 +20,7 @@ import modelo.Conferencista;
  * @author mavel
  */
 public class Conferencistas extends javax.swing.JFrame {
+    reloj hilo1;
 
     DefaultTableModel MiTabla;
     conexionmysql cm;
@@ -34,6 +37,8 @@ public class Conferencistas extends javax.swing.JFrame {
      */
     public Conferencistas() throws SQLException {
         initComponents();
+        hilo1 = new reloj();
+        hilo1.start();
         configurarTabla();
         setLocationRelativeTo(null);
         configurarTabla();
@@ -171,6 +176,8 @@ public class Conferencistas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        lblFechaActual = new javax.swing.JLabel();
+        lblHoraActual = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -269,7 +276,13 @@ public class Conferencistas extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 520, 210));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 430));
+        lblFechaActual.setText("Fecha:");
+        jPanel1.add(lblFechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, 110, 20));
+
+        lblHoraActual.setText("Hora:");
+        jPanel1.add(lblHoraActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 430, 110, 20));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -288,18 +301,30 @@ public class Conferencistas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnnuevoActionPerformed
 
     private void btninsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertarActionPerformed
+        if (jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Completa el ID y el nombre");
+            return;
+        }
         try {
             this.crearConferencista();
             this.insertar(conf);
+            javax.swing.JOptionPane.showMessageDialog(this, "Conferencista registrado");
         } catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo registrar el conferencista");
             System.getLogger(Conferencistas.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }//GEN-LAST:event_btninsertarActionPerformed
 
     private void btnactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizarActionPerformed
+        if (jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Completa el ID y el nombre");
+            return;
+        }
         try {
             this.actualizaObjeto();
+            javax.swing.JOptionPane.showMessageDialog(this, "Conferencista actualizado");
         } catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo actualizar el conferencista");
             System.getLogger(Conferencistas.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
@@ -309,9 +334,15 @@ public class Conferencistas extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void btneliminarMouseClicked(java.awt.event.MouseEvent evt) {
+        if (jTextField1.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un conferencista");
+            return;
+        }
         try {
             this.eliminar(this.jTextField1.getText());
+            javax.swing.JOptionPane.showMessageDialog(this, "Conferencista eliminado");
         } catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo eliminar el conferencista");
             System.getLogger(Conferencistas.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }
@@ -366,6 +397,8 @@ public class Conferencistas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblFechaActual;
+    private javax.swing.JLabel lblHoraActual;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -374,4 +407,23 @@ public class Conferencistas extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+    class reloj extends Thread {
+        public void run() {
+            while (true) {
+                Date fecha = new Date();
+                String formato = "hh:mm:ss";
+                String formato2 = "dd-MM-yyyy";
+                SimpleDateFormat ff = new SimpleDateFormat(formato2);
+                SimpleDateFormat fh = new SimpleDateFormat(formato);
+                lblFechaActual.setText("Fecha: " + ff.format(fecha));
+                lblHoraActual.setText("Hora: " + fh.format(fecha));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    System.getLogger(Conferencistas.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+            }
+        }
+    }
 }

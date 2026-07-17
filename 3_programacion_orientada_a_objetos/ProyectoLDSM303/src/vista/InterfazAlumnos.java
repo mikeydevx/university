@@ -12,6 +12,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import modelo.Alumno;
 
 /**
@@ -19,6 +21,7 @@ import modelo.Alumno;
  * @author mavel
  */
 public class InterfazAlumnos extends javax.swing.JFrame {
+    reloj hilo1;
 
     DefaultTableModel miTabla;
     conexionmysql cm;
@@ -32,6 +35,8 @@ public class InterfazAlumnos extends javax.swing.JFrame {
      */
     public InterfazAlumnos() throws SQLException {
         initComponents();
+        hilo1 = new reloj();
+        hilo1.start();
         this.setLocationRelativeTo(null);
         configurarTabla();
         cm = new conexionmysql();
@@ -130,6 +135,8 @@ public class InterfazAlumnos extends javax.swing.JFrame {
         MiTablaAlumnos = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         cmbgrupo = new javax.swing.JComboBox<>();
+        lblFechaActual = new javax.swing.JLabel();
+        lblHoraActual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -203,7 +210,13 @@ public class InterfazAlumnos extends javax.swing.JFrame {
         cmbgrupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LDSM301", "LDSM302", "LDSM303", "LDSM304" }));
         jPanel1.add(cmbgrupo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 410));
+        lblFechaActual.setText("Fecha:");
+        jPanel1.add(lblFechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, 110, 20));
+
+        lblHoraActual.setText("Hora:");
+        jPanel1.add(lblHoraActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 110, 20));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -217,10 +230,16 @@ public class InterfazAlumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnombreActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        if (txtmatricula.getText().isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Selecciona un alumno");
+            return;
+        }
         try {
             eliminarAlumno();
             llenarTabla();
+            javax.swing.JOptionPane.showMessageDialog(this, "Alumno eliminado");
         } catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo eliminar el alumno");
             System.getLogger(InterfazAlumnos.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }//GEN-LAST:event_btneliminarActionPerformed
@@ -231,6 +250,11 @@ public class InterfazAlumnos extends javax.swing.JFrame {
         nombre = txtnombre.getText();
         grupo = (String) cmbgrupo.getSelectedItem();
 
+        if (matricula.isEmpty() || nombre.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Completa la matricula y el nombre");
+            return;
+        }
+
         Alumno registro = new Alumno(matricula, nombre, grupo);
 
         try {
@@ -238,7 +262,9 @@ public class InterfazAlumnos extends javax.swing.JFrame {
             llenarTabla();
             txtmatricula.setText(null);
             txtnombre.setText(null);
+            javax.swing.JOptionPane.showMessageDialog(this, "Alumno registrado");
         } catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo registrar el alumno");
             System.getLogger(InterfazAlumnos.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
 
@@ -255,13 +281,20 @@ public class InterfazAlumnos extends javax.swing.JFrame {
         matricula = txtmatricula.getText();
         nombre = txtnombre.getText();
         grupo = (String) cmbgrupo.getSelectedItem();
+
+        if (matricula.isEmpty() || nombre.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Completa la matricula y el nombre");
+            return;
+        }
         
         Alumno actualizar = new Alumno(matricula, nombre, grupo);
         
         try {
             editarAlumno(actualizar);
             llenarTabla();
+            javax.swing.JOptionPane.showMessageDialog(this, "Alumno actualizado");
         } catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se pudo actualizar el alumno");
             System.getLogger(InterfazAlumnos.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }//GEN-LAST:event_btnactualizarActionPerformed
@@ -333,7 +366,28 @@ public class InterfazAlumnos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblFechaActual;
+    private javax.swing.JLabel lblHoraActual;
     private javax.swing.JTextField txtmatricula;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
+
+    class reloj extends Thread {
+        public void run() {
+            while (true) {
+                Date fecha = new Date();
+                String formato = "hh:mm:ss";
+                String formato2 = "dd-MM-yyyy";
+                SimpleDateFormat ff = new SimpleDateFormat(formato2);
+                SimpleDateFormat fh = new SimpleDateFormat(formato);
+                lblFechaActual.setText("Fecha: " + ff.format(fecha));
+                lblHoraActual.setText("Hora: " + fh.format(fecha));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    System.getLogger(InterfazAlumnos.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+            }
+        }
+    }
 }

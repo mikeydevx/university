@@ -5,6 +5,8 @@
 package vista;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,6 +15,7 @@ import java.util.logging.Logger;
  * @author mavel
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+    reloj hilo1;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
 
@@ -21,6 +24,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        hilo1 = new reloj();
+        hilo1.start();
         this.setLocationRelativeTo(null);
     }
 
@@ -34,8 +39,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        lblFechaActual = new javax.swing.JLabel();
+        lblHoraActual = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnAsistencia = new javax.swing.JButton();
         btnAlumnos = new javax.swing.JButton();
         btnConferencistas = new javax.swing.JButton();
         btnConferencias = new javax.swing.JButton();
@@ -56,26 +64,37 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2.setText("Seleccione una opción del menú:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, 450, -1));
 
+        btnAsistencia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAsistencia.setText("Registrar Asistencia");
+        btnAsistencia.addActionListener(this::btnAsistenciaActionPerformed);
+        jPanel1.add(btnAsistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 250, 40));
+
         btnAlumnos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnAlumnos.setText("Gestión de Alumnos");
         btnAlumnos.addActionListener(this::btnAlumnosActionPerformed);
-        jPanel1.add(btnAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 250, 40));
+        jPanel1.add(btnAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 250, 40));
 
         btnConferencistas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnConferencistas.setText("Gestión de Conferencistas");
         btnConferencistas.addActionListener(this::btnConferencistasActionPerformed);
-        jPanel1.add(btnConferencistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 250, 40));
+        jPanel1.add(btnConferencistas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 250, 40));
 
         btnConferencias.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnConferencias.setText("Gestión de Conferencias");
         btnConferencias.addActionListener(this::btnConferenciasActionPerformed);
-        jPanel1.add(btnConferencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 250, 40));
+        jPanel1.add(btnConferencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 250, 40));
 
         btnSalir.setText("Salir del Sistema");
         btnSalir.addActionListener(this::btnSalirActionPerformed);
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 150, 30));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 150, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 350));
+        lblFechaActual.setText("Fecha:");
+        jPanel1.add(lblFechaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 110, 20));
+
+        lblHoraActual.setText("Hora:");
+        jPanel1.add(lblHoraActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 110, 20));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 430));
 
         pack();
         setLocationRelativeTo(null);
@@ -105,7 +124,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConferenciasActionPerformed
 
+    private void btnAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActionPerformed
+        try {
+            new Principal().setVisible(true);
+        } catch (SQLException ex) {
+            logger.log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAsistenciaActionPerformed
+
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        javax.swing.JOptionPane.showMessageDialog(this, "Hasta luego");
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -136,11 +164,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlumnos;
+    private javax.swing.JButton btnAsistencia;
     private javax.swing.JButton btnConferencias;
     private javax.swing.JButton btnConferencistas;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFechaActual;
+    private javax.swing.JLabel lblHoraActual;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    class reloj extends Thread {
+        public void run() {
+            while (true) {
+                Date fecha = new Date();
+                String formato = "hh:mm:ss";
+                String formato2 = "dd-MM-yyyy";
+                SimpleDateFormat ff = new SimpleDateFormat(formato2);
+                SimpleDateFormat fh = new SimpleDateFormat(formato);
+                lblFechaActual.setText("Fecha: " + ff.format(fecha));
+                lblHoraActual.setText("Hora: " + fh.format(fecha));
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    System.getLogger(MenuPrincipal.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+                }
+            }
+        }
+    }
 }

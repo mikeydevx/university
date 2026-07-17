@@ -1365,6 +1365,25 @@ jLabelFoto.setIcon(new ImageIcon(
 ));</code></pre>
             <p class="note">Cargar imagen por nombre.</p>
           </article>
+          <article class="card" data-search="quickchart grafica api imageicon url label">
+            <h3>Grafica con QuickChart (3 valores)</h3>
+            <pre><code>// 1. URL de la grafica con Chart.js
+String chartUrl = "https://quickchart.io/chart?c="
+    + "{type:'bar',data:{labels:['A','B','C'],"
+    + "datasets:[{label:'Valores',data:[10,20,30]}]}}";
+
+try {
+    // 2. Cargar imagen desde internet
+    java.net.URL url = new java.net.URL(chartUrl);
+    javax.swing.ImageIcon icon = new javax.swing.ImageIcon(url);
+    
+    // 3. Mostrar en un JLabel
+    jLabelGrafica.setIcon(icon);
+} catch (Exception e) {
+    e.printStackTrace();
+}</code></pre>
+            <p class="note">Cargar graficas en Swing usando QuickChart API.</p>
+          </article>
           <article class="card" data-search="imports imagen teclado">
             <h3>Imports utiles</h3>
             <pre><code>import java.awt.Image;
