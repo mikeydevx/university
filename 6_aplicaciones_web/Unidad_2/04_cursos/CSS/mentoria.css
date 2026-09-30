@@ -13,7 +13,7 @@
     --color_borde: #e0e0e0; 
     
     --fuente_titulo: 'Montserrat';
-    --fuente_curpo: 'OpenSans-Regular';
+    --fuente_cuerpo: 'OpenSans-Regular';
 
 }
 
@@ -160,7 +160,7 @@ h1, h2, h3 {
 
 .tarjetas{
 display: flex;
-flex-wrap: nowwrap;
+flex-wrap: nowrap;
 gap: 20px;
 
 
@@ -184,8 +184,8 @@ gap: 20px;
     flex-wrap: wrap;
     align-items: center;
     margin-top: 20px;
-    padding: 30;
-    gap: 400px;
+    padding: 30px;
+    gap: 20px;
 }
 
 .reglas{
