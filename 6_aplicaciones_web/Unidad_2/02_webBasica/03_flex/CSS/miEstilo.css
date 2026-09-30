@@ -1,0 +1,44 @@
+.flex{
+    display: flex;
+    background-color: black;
+}
+
+.contenedor1{
+    flex-direction: row-reverse; /*row colum row-reverse*/
+}
+
+.flex div{
+    background-color: azure;
+    margin: 20px;
+    padding: 20px;
+    font-style: 30px;
+}
+
+.contenedor2{
+    flex-wrap: wrap; /*Para adaptar al contenido a la pantalla*/
+}
+
+.contenedor3{
+    flex-flow: row-reverse wrap; /*Se agregan los dos anteriores juntos en una misma propiedad*/
+    justify-content: space-around;
+}
+
+.contenedor4{ /*alin horizontal*/
+    justify-content: space-evenly; /*tiene un poco más de variantes, alineaciones de contenidos*/
+}
+
+.contenedor5{ /*alig vertical*/
+    align-items: stretch;
+    height: 400px;
+}
+
+.tamG{
+    flex-grow: 10;
+    align-self: center;
+}
+
+.tamC{
+    flex-grow: 2;
+    align-self: center;
+}
+

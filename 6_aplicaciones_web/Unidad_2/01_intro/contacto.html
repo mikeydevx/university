@@ -1,0 +1,51 @@
+<!DOCTYPE html> <!--única que va en mayúsculas, para indicar que es un archivo web -->
+<html>
+    <head lang="es">
+        <meta charset="UTF-8"> <!--Metadatos-->
+        <title>Bienvenido al Reino Champiñon</title>
+        <link rel="stylesheet" href="01_miEstilo.css">
+    </head>
+    <body>
+        <main class="contenedor">
+
+        <!--Barra de navegación-->
+        <h1></h1>
+        <nav>
+            <a href="Introduccion.html">Inicio</a>
+            <a href="niveles.html">Niveles</a>
+            <a href="personaje.html">Datos</a>
+            <a href="contacto.html">Aventuras</a>
+        </nav>
+
+        <h1>Únete al club de Expedición</h1>
+        <p>Completa tus datos para recibir alertas de nuevos torneos, trucos de velocidad (speedruns) y rescates urgentes:</p>
+
+        <form action="#" method="POST"> <!--GET O POST-->
+            <label for="nombre">Nombre del aventurero</label>
+            <input type="text" placeholder="Ingresa nombre" name="nombre">
+
+            <label for="correo">Correo de notificacion</label>
+            <input type="email" placeholder="Ingresa tu correo" name="correo">
+            
+            <label for="personaje-fav">Compañero favorito</label>
+            <select name="personaje-fav" id="personaje-fav">
+                <option value="mario">Mario</option>
+                <option value="luigi">Luigi</option>
+                <option value="princesa">Princesa</option>
+                <option value="toad">Toad</option>
+                <option value="yoshi">Yoshi</option>
+            </select>
+
+            <label for="mensaje">Sugerencias</label>
+            <textarea name="mensaje" id="mensaje" rown="5"></textarea>
+
+            <button type="submit">Registrar</button>
+        </form>
+        
+        <footer>
+            <h6>Miguel Velázquez &copy; 2026 UTL</h6>
+        </footer>
+    </main>
+    </body>
+    
+</html>

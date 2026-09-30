@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction" />
+        <option name="gradleJvm" value="25" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/AlmostDone/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Chat/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/FeedbackSurvey/Survey" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Hangman/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Introduction/Course View" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Introduction/Editor" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Introduction/Navigating Around" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Introduction/Task Description" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/Introduction/welcome" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/LastPush/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/MastermindAdvanced/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/TheFirstDateWithProgramming/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/WarmUp/task" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/gifs" />
+            <option value="$PROJECT_DIR$/Kotlin_Onboarding_1__Introduction/utils" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

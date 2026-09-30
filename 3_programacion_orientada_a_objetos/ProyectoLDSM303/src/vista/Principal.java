@@ -211,8 +211,6 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblFechaActual = new javax.swing.JLabel();
-        lblHoraActual = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -234,6 +232,8 @@ public class Principal extends javax.swing.JFrame {
         btnpastel = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        lblFechaActual = new javax.swing.JLabel();
+        lblHoraActual = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UTL A LA VANGUARDIA EN TECNOLOGIA IoT");
@@ -311,7 +311,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel13.setText("Registro de participante: ");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
 
-        txtmatricula.setText("jTextField1");
         txtmatricula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtmatriculaKeyReleased(evt);
@@ -325,7 +324,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnbarras.setText("Grafica barras");
         btnbarras.addActionListener(this::btnbarrasActionPerformed);
-        jPanel2.add(btnbarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
+        jPanel2.add(btnbarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
 
         btnpastel.setText("Grafica pastel");
         btnpastel.addActionListener(this::btnpastelActionPerformed);
@@ -451,12 +450,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelHora;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblFechaActual;
-    private javax.swing.JLabel lblHoraActual;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblFechaActual;
+    private javax.swing.JLabel lblHoraActual;
     private javax.swing.JTextField txtmatricula;
     // End of variables declaration//GEN-END:variables
 

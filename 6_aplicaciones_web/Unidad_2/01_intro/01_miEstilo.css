@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    line-height: 1.6;
+    background-color: #049cd8; /* Tono arena suave */
+    color: #2b2b2b;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 3px solid #fbd000; /* Borde rojo Mario */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+nav {
+    background-color: #fbd000; /* Rojo Mario */
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: color 0.2s ease-in-out;
+}
+
+nav a:hover {
+    color: #049cd8; /* Amarillo moneda */
+    text-decoration: underline; /*  cambiar a efecto de text 04---*/
+}
+
+h1 {
+    color: #e52521;
+    margin-bottom: 12px;
+}
+
+h2, h3 {
+    color: #009b3a; /* Verde tubería */
+    margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.img-personaje {
+    max-width: 220px;
+    border-radius: 12px;
+    display: block;
+    margin: 15px 0;
+    border: 3px solid #009b3a; /* Borde amarillo */
+}
+
+/* Listas */
+ul, ol {
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+dl {
+    margin-bottom: 20px;
+}
+
+dt {
+    font-weight: bold;
+    color: #e52521;
+    margin-top: 10px;
+}
+
+dd {
+    margin-left: 20px;
+    margin-bottom: 8px;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 2px solid #ddd;
+    text-align: left;
+}
+
+table thead {
+    background-color: #009b3a; /* Verde Luigi */
+    color: white;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fff9e6;
+}
+
+/* Formularios */
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #2b2b2b;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #009b3a;
+    outline: none;
+}
+
+button {
+    background-color: #e52521;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 18px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #b81b17;
+}
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    border-top: 2px solid #009b3a;
+    padding-top: 15px;
+    color: #666;
+}
+
