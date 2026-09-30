@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/inscribirse.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>TechAcademy</title>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div id="logo">
+            <h1>TechAcademy</h1>
+        </div>
+        <nav class="menuPrincipal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="mentoria.html">Mentoría</a></li>
+                <li><a href="inscribirse.html" id="btn_destacado">Inscribirse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Contenido principal-->
+    <main class="contenedorprincipal">
+    
+    <h2>Inscripción de Estudiante</h2>
+
+    <form action="#" method="GET"> <!--GET O POST-->
+            <label for="nombre">Nombre completo: </label>
+            <input type="text" placeholder="Ingresa nombre" id="nombre" name="nombre" required>
+
+            <label for="fecha_nacimiento">Fecha de nacimiento</label>
+            <input type="date" placeholder="Ingresa tu fecha" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            
+            <label for="datos_contacto">Datos de contacto</label>
+            <input type="email"  placeholder="Ingresa tu correo: " id="datos_contacto" name="correo" required>
+
+            <input type="radio" id="hombre" name="sexo" value="H" required>
+            <label for="hombre">Hombre</label>
+
+            <input type="radio" id="mujer" name="sexo" value="M" required>
+            <label for="mujer">Mujer</label>
+
+            <h2>Datos curso</h2>
+            <label for="curso">Curso a inscribirse</label>
+            <select name="curso" id="curso" required>
+                <option value="frontend">Desarrollo Web Frontend</option>
+                <option value="python">Python para ciencia de datos</option>
+                <option value="backend">Desarrollo Web Backend</option>
+                <option value="fullstack">Desarrollo Web Fullstack</option>
+            </select>
+            <button type="submit">Registrar</button>
+        </form>
+    
+    </main>
+
+
+    <!--Footer-->
+
+    <footer>
+        <p>&copy; 2023 TechAcademy. Todos los derechos reservados.</p>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+/* Recurso con fuentes */
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+:root{
+    --color_principal: #0b5180;
+    --color_secundario: #00a859;
+    --color_oscuro: #2b2b2b;
+    --color_claro: #fff;
+    --color_fondo: #f4f7f6;
+    --color_borde: #e0e0e0; 
+    
+    --fuente_titulo: 'Montserrat';
+    --fuente_curpo: 'OpenSans-Regular';
+
+}
+
+
+* {
+    box-sizing: border-box; /* Diseño responsivo */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color_fondo);
+    color: var(--color_oscuro);
+    line-height: 1.6;   
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--fuente_titulo);
+}
+
+header {
+    display: flex;
+    background-color: var(--color_claro);
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgb(11, 11, 11);
+    top: 0;
+    position: sticky;
+    z-index: 1000;
+    padding: 15px 20px; /* Padding lateral y superior/inferior para que no quede pegado */
+    width: 100%;       
+    max-width: 100%;   
+}
+
+nav {
+    display: flex;
+}
+
+/* El <ul> ahora es el contenedor principal de los elementos de la lista */
+nav ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+/* Estilo opcional pero recomendado para los elementos de lista */
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--color_principal); /* Cambiado a azul para que resalte al pasar el mouse, puedes ajustarlo */
+}
+
+#logo h1 {
+    color: var(--color_principal);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente_titulo);
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+}
+
+#btn_destacado, #btn_accion{
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+#btn_destacado{
+    background-color: var(--color_principal);
+    color: var(--color_claro);    
+}
+
+#btn_accion{
+    background-color: var(--color_secundario);
+    color: var(--color_claro);
+}
+
+#btn_accion:hover{
+    background-color: var(--color_principal);
+}
+
+#btn_destacado:hover{
+    color: red;
+}
+
+
+.contenedorprincipal{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/*Contenido principal (main)*/
+.tec{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0;
+    flex-wrap: wrap;
+}
+
+.tec_contenido, .imagen{
+    flex: 1 1 300px;
+}
+
+.tec_contenido h2{
+    font-size: 2.5rem;
+    color: var(--color_principal);
+    line-height: 1.2;
+}
+
+.tec_contenido p{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+img{width: 100%;}
+
+/* Grid de cursos */
+#calalogo{
+    padding: 40px 0;
+}
+
+#catalogo h2{
+    text-align: center;
+    color: var(--color_principal);
+
+}
+
+.grid_cursos{
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+.tarjeta_cursos{
+    background-color: var(--color_claro);
+    border: 1px solid var(--color_borde);
+    border-radius: 8px;
+    flex: 1 1 280px; /* grow , shrink, basis */
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease,box-shadow 0.5s ease; 
+
+}
+
+.tarjeta_cursos:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.tarjeta_cursos img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /*Mantiene la proporción de la imagen */
+}
+.info_curso{
+    padding: 20px;
+    flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+    display: flex;
+    flex-direction: column;
+
+}
+
+.info_curso h3{
+    font-size: 1.3rem;
+    color: var(--color_principal);
+}
+
+.info_curso p{
+   margin-bottom: 15px;
+   flex-grow: 1; /* Permite que el párrafo crezca para llenar el espacio disponible */
+   color: var(--color_oscuro);
+}
+
+.nivel{
+    background-color: var(--color_fondo);
+    color: var(--color_clar);
+    font-family: var(--fuente_titulo);
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    align-self: flex-start; /* Alinea el span al inicio del contenedor */
+}
+
+/* Footer */
+footer{
+    background-color: var(--color_oscuro);
+    color: var(--color_claro);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
