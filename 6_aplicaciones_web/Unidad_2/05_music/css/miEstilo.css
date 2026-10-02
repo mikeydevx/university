@@ -1,0 +1,291 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    box-sizing: border-box; /*Comportamiento de cajas*/
+    margin: 0;
+    padding: 0;
+}
+
+html { 
+    scroll-behavior: smooth; /*Es para hacer un deslizador en automatico es lento*/
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #f5f5f5;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh; /*Altura minima vh=100% vertial hit*/
+
+    background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    linear-gradient(135deg, #ff416c, #ff4b2b);
+        
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+}
+
+
+.hero-contenido {
+    max-width: 800px;
+    padding: 30px;
+}
+
+
+.hero h1 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+
+.subtitulo {
+    letter-spacing: 5px;
+    font-size: 1rem;
+}
+
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: white;
+    color: #222;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 100px 30px;
+}
+
+
+.intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   GENERACIONES
+========================= */
+
+.generaciones {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px 30px;
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 30px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.10);
+}
+
+
+.card-imagen {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.rock {
+    background-image: url("../images/rock.svg");
+}
+
+.pop {
+    background-image: url("../images/pop.svg");
+}
+
+.millennial {
+    background-image: url("../images/millennial.svg");
+}
+
+.genz {
+    background-image: url("../images/genz.svg");
+}
+
+
+.card-contenido {
+    padding: 30px;
+}
+
+
+.card-contenido span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.card h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+
+.card-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+    text-align: center;
+    padding: 100px 30px;
+    background: #111;
+    color: white;
+}
+
+
+.cta h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+
+.cta p {
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+    padding: 30px;
+    background: #000;
+    color: white;
+}
+
+/*Diseño tablet*/
+@media (max-width: 768){
+    .card1{
+        background-color: #ff416c;
+    }
+}
+
+
+/*Diseño celular*/
+
+@media (max-width: 480px) {
+    .hero{
+        min-height: 88vh;
+        background-attachment: scroll;
+       
+    }
+
+    .hero h1{
+        font-size: 1rem;
+    }
+
+    .btn{
+        display:none;
+
+        /*visibility: hidden; /*Esta reservado esta caja*/
+    }
+
+    .generaciones{
+       display: flex;
+       flex-direction: column; 
+       gap: 15px; /
+        
+    }
+
+    .card-imagen{
+        display: none; 
+    }
+
+    .intro{
+        padding-bottom: 0;
+    }
+
+    #card1{
+    background: #EEAECA;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+
+    #card2{
+        background: #2A7B9B;
+        background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    }
+
+    #card3{
+        background: #020024;
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    }
+
+    #card4{
+        background: #833AB4;
+        background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    }
+
+    .card-contenido{
+    color: white;
+    font-weight: 800;
+    }
+
+    
+
+}
