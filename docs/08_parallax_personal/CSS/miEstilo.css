@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.contenido{
+    height: 100vh;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#laptop{
+    background-image: url(../Imagenes/img1.png);
+}
+
+#capa1{
+    background-image: url(../Imagenes/img2.png);
+}
+
+#capa2{
+    background-image: url(../Imagenes/img3.png);
+}
+
+#capa3{
+    background-image: url(../Imagenes/img4.png);
+}
+
+#capa4{
+    background-image: url(../Imagenes/img5.png);
+}
+
+nav{
+    position: fixed;
+    left: 20%;
+    top:30%;
+    z-index: 1000;
+    transition: 0.4s ease;
+    transform: translateX(-50%);
+}
+
+ul{
+    list-style: none;
+}
+
+ul a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    transition: 0.4s ease;
+
+     background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+a:hover{
+    transform: translateX(10%);
+    background-color: #006cff;
+    color: white;
+}
+
+.titulo-fijo{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    color: white;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 10px 20px;
+    text-align: center;
+    }
