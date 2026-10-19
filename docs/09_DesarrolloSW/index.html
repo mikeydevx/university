@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+  <meta charset="UTF-8">
+    <!-- para ajustar la página al celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Axis Core: gimnasio, entrenamiento y planes para estudiantes.">
+  <title>GYM Chido</title>
+<!-- poniendo bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- íconos para los servicios y redes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- aquí va mi css después de bootstrap para que no haya problemas de estilo -->
+  <link rel="stylesheet" href="CSS/miestilo.css">
+</head>
+<body>
+<!-- encabezado con menú y carrusel -->
+<header id="inicio">
+
+       <!-- menú -->
+      <nav class="navbar navbar-expand-lg menu-principal fixed-top" data-bs-theme="dark" aria-label="Menú principal">
+        <div class="container justify-content-between justify-content-lg-center gap-3">
+        <a class="navbar-brand" href="#inicio">
+            <img id="logo" src="IMG/logo.png" alt="logo">
+           </a>
+      <!-- botón de las tres rayitas, hamburguesa -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <!-- enlaces que se abren en el celular -->
+        <div class="collapse navbar-collapse flex-grow-0" id="menu">
+             <ul class="navbar-nav text-center">
+              <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+              <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+              <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+       </nav>
+
+
+
+
+       
+      <!-- encabezado con carrusel -->
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" aria-label="Entrenamiento destacado">
+      <div class="carousel-inner">
+           <!-- primera imagen, esta se ve al entrar -->
+           <div class="carousel-item active">
+        <img src="IMG/img1_carrusel.png" class="d-block w-100" alt="img1-persona">
+          <!-- texto encima de la imagen -->
+          <div class="carousel-caption">
+              <p>VENCE TUS LÍMITES</p>
+              <h1>FÍSICOS</h1>
+               <a href="#planes" class="btn btn-verde">Conoce nuestros planes</a>
+            </div>
+          </div>
+      <!-- otra imagen del carrusel -->
+      <div class="carousel-item">
+            <img src="IMG/img2_carrusel.png" class="d-block w-100" alt="img2-persona">
+             <!-- texto encima de la imagen -->
+             <div class="carousel-caption">
+            <p>UN PASO MÁS CADA DÍA</p>
+              <h2>FUERZA</h2>
+              <a href="#servicios" class="btn btn-verde">Descubre los servicios</a>
+          </div>
+      </div>
+          <!-- otra imagen del carrusel -->
+          <div class="carousel-item">
+          <img src="IMG/img3_carrusel.png" class="d-block w-100" alt="img3-persona">
+            <!-- texto encima de la imagen -->
+            <div class="carousel-caption">
+              <p>ENTRENA A TU RITMO</p>
+               <h2>ACTÍVATE</h2>
+              <a href="#contacto" class="btn btn-verde">Empieza hoy</a>
+        </div>
+        </div>
+        </div>
+         <!-- flecha para regresar -->
+         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+    <!-- flecha para avanzar -->
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+      </button>
+      </div>
+</header>
+     <main id="contenido">
+
+      <!-- nosotros -->
+    <section id="nosotros" class="py-5">
+        <div class="container">
+           <div class="row align-items-center g-4">
+          <div class="col-12 col-md-6">
+              <img src="IMG/img1_info.png" class="img-fluid foto-nosotros" alt="img1-mujer">
+        </div>
+          <div class="col-12 col-md-6 texto-nosotros">
+               <!-- poniendo un título sobre el otro -->
+               <div class="titulo-nosotros">
+                <span aria-hidden="true">SOBRE</span>
+              <h2>QUIÉNES SOMOS</h2>
+              </div>
+              <p>Somos un gimnasio donde puedes hacer ejercicio y aprender a usar los aparatos. Te ayudamos con tu rutina según lo que quieras trabajar.</p>
+          <!-- este párrafo se oculta en celular -->
+          <p class="d-none d-md-block">No importa si apenas empiezas o ya llevas tiempo entrenando. Aquí puedes ir a tu ritmo y preguntar cuando tengas dudas.</p>
+              <a href="#servicios" class="btn btn-dark">
+                CONOCE MÁS
+              <span aria-hidden="true">›</span>
+              </a>
+             </div>
+        </div>
+    </div>
+      </section>
+       <!-- promoción -->
+      <section id="planes">
+      <div class="container">
+          <div class="row align-items-center g-4">
+        <div class="col-12 col-md-6 texto-planes">
+               <h2>PLANES</h2>
+              <p class="text-white">Tenemos un plan para que vengas a entrenar durante el mes.</p>
+              <!-- separando el precio y los detalles -->
+              <div class="row align-items-center">
+              <div class="col-6">
+                  <p class="precio-plan">$410</p>
+                 </div>
+            <div class="col-6">
+                  <h3 class="h6 fw-bold">PLAN MENSUAL</h3>
+                  <p>Precio especial para estudiantes.</p>
+              </div>
+               </div>
+              <!-- este botón abre la ventana del plan -->
+              <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#modalPlan">VER PLAN</button>
+          </div>
+        <div class="col-12 col-md-6">
+              <img src="IMG/img2_info.png" class="img-fluid imagen-plan" alt="img2-hombre">
+             </div>
+          </div>
+        </div>
+    </section>
+
+  <!-- servicios -->
+    <section id="servicios" class="py-5">
+        <div class="container">
+          <div class="row align-items-center g-4">
+          <div class="col-12 col-md-6 servicios-imagen">
+               <h2>SERVICIOS</h2>
+              <img src="IMG/img3_info.png" class="img-fluid" alt="img3-persona">
+        </div>
+            <div class="col-12 col-md-6">
+              <!-- ícono y texto del servicio -->
+              <article class="servicio-resumen">
+                 <i class="bi bi-person" aria-hidden="true"></i>
+                <div>
+                  <h3>ENTRENAMIENTO PERSONAL</h3>
+                <p>Te ayudamos a armar una rutina según tu nivel y el tiempo que tengas.</p>
+            </div>
+               </article>
+            <!-- ícono y texto del servicio -->
+            <article class="servicio-resumen">
+                <i class="bi bi-clipboard-check" aria-hidden="true"></i>
+                <div>
+                <h3>EVALUACIÓN FÍSICA</h3>
+                   <p>Revisamos cómo vas antes de empezar con tu rutina.</p>
+            </div>
+            </article>
+              <!-- ícono y texto del servicio -->
+              <article class="servicio-resumen">
+                <i class="bi bi-basket" aria-hidden="true"></i>
+                 <div>
+                  <h3>ORIENTACIÓN NUTRICIONAL</h3>
+                  <p>Un profesional te orienta sobre qué comer según tu entrenamiento.</p>
+            </div>
+              </article>
+               <a href="#catalogo" class="btn btn-dark">VER TODOS LOS SERVICIOS</a>
+          </div>
+          </div>
+        </div>
+    </section>
+
+      <!-- galería -->
+    <section id="galeria" class="py-5">
+        <div class="container">
+          <p class="subtitulo">UNAS FOTOS DEL GYM</p>
+           <h2 class="titulo-seccion">GALERÍA</h2>
+          <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+            <!-- poniendo foto con su texto abajo -->
+            <figure>
+                <img src="IMG/img1_carrusel.png" class="img-fluid" alt="img1-persona">
+                 <figcaption>Zona de pesas</figcaption>
+            </figure>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+          <!-- poniendo foto con su texto abajo -->
+          <figure>
+                 <img src="IMG/img2_carrusel.png" class="img-fluid" alt="img2-persona">
+                <figcaption>Hora de entrenar</figcaption>
+            </figure>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <!-- poniendo foto con su texto abajo -->
+               <figure>
+            <img src="IMG/img3_carrusel.png" class="img-fluid" alt="img3-persona">
+                <figcaption>Un poco de ejercicio</figcaption>
+            </figure>
+            </div>
+           </div>
+      </div>
+      </section>
+
+    <!-- catálogo: diez servicios cards -->
+       <section id="catalogo" class="py-5">
+        <div class="container">
+        <p class="subtitulo">QUÉ PUEDES HACER AQUÍ</p>
+          <h2 class="titulo-seccion">NUESTRO CATÁLOGO</h2>
+          <p class="mb-4">Estos son nuestros servicios.</p>
+      <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <!-- poniendo card de entrenamiento personal -->
+              <article class="card h-100">
+              <div class="card-body d-flex flex-column">
+                  <div class="servicio-numero">
+                     01
+                  <i class="bi bi-person" aria-hidden="true"></i>
+              </div>
+                  <h3 class="h5">Entrenamiento personal</h3>
+                <p>Un entrenador te ayuda con tu rutina y te explica los ejercicios.</p>
+                   <p class="precio-servicio mt-auto">Desde $250 por sesión</p>
+                  <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+              </div>
+              </article>
+        </div>
+             <div class="col-12 col-sm-6 col-lg-4">
+              <!-- poniendo card de funcional -->
+              <article class="card h-100">
+                <div class="card-body d-flex flex-column">
+                <div class="servicio-numero">
+                    02
+                     <i class="bi bi-lightning" aria-hidden="true"></i>
+              </div>
+                  <h3 class="h5">Entrenamiento funcional</h3>
+                  <p>Hacemos varios ejercicios seguidos para trabajar todo el cuerpo.</p>
+                <p class="precio-servicio mt-auto">Incluido en la mensualidad</p>
+                   <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+                </div>
+            </article>
+        </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+               <!-- poniendo card de pesas -->
+               <article class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <div class="servicio-numero">
+                  03
+                    <i class="bi bi-activity" aria-hidden="true"></i>
+              </div>
+                <h3 class="h5">Pesas</h3>
+                  <p>Puedes usar las mancuernas, barras y aparatos del gimnasio.</p>
+                  <p class="precio-servicio mt-auto">Incluido en la mensualidad</p>
+                <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+                 </div>
+              </article>
+        </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <!-- poniendo card de cardio -->
+              <article class="card h-100">
+                 <div class="card-body d-flex flex-column">
+                  <div class="servicio-numero">
+                    04
+                  <i class="bi bi-heart-pulse" aria-hidden="true"></i>
+              </div>
+                   <h3 class="h5">Cardio</h3>
+                <p>Tenemos caminadoras y bicicletas para hacer cardio.</p>
+                  <p class="precio-servicio mt-auto">Incluido en la mensualidad</p>
+                  <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+              </div>
+               </article>
+        </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+              <!-- poniendo card de box -->
+              <article class="card h-100">
+                <div class="card-body d-flex flex-column">
+                   <div class="servicio-numero">
+                    05
+                    <i class="bi bi-lightning" aria-hidden="true"></i>
+              </div>
+                  <h3 class="h5">Box recreativo</h3>
+                   <p>Aprende movimientos básicos de box y haz ejercicio en la clase.</p>
+                <p class="precio-servicio mt-auto">Desde $200 por clase</p>
+                  <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+                </div>
+            </article>
+        </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+            <!-- poniendo card de movilidad -->
+            <article class="card h-100">
+                <div class="card-body d-flex flex-column">
+                  <div class="servicio-numero">
+                     06
+                    <i class="bi bi-arrows-move" aria-hidden="true"></i>
+              </div>
+                <h3 class="h5">Movilidad</h3>
+                  <p>Ejercicios para estirarte y moverte mejor.</p>
+                   <p class="precio-servicio mt-auto">Incluido en la mensualidad</p>
+                <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+                </div>
+              </article>
+        </div>
+             <div class="col-12 col-sm-6 col-lg-4">
+              <!-- poniendo card de evaluación física -->
+              <article class="card h-100">
+              <div class="card-body d-flex flex-column">
+                  <div class="servicio-numero">
+                    07
+                     <i class="bi bi-clipboard-check" aria-hidden="true"></i>
+              </div>
+                  <h3 class="h5">Evaluación física</h3>
+                <p>Revisamos tu condición física para saber por dónde empezar.</p>
+                  <p class="precio-servicio mt-auto">Desde $150 por evaluación</p>
+                   <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+              </div>
+              </article>
+        </div>
+          <div class="col-12 col-sm-6 col-lg-4">
+               <!-- poniendo card de alimentación -->
+               <article class="card h-100">
+                <div class="card-body d-flex flex-column">
+                <div class="servicio-numero">
+                    08
+                    <i class="bi bi-basket" aria-hidden="true"></i>
+              </div>
+                  <h3 class="h5">Orientación nutricional</h3>
+                  <p>Puedes consultar con un profesional sobre tu alimentación.</p>
+                <p class="precio-servicio mt-auto">Desde $300 por consulta</p>
+                  <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+                 </div>
+            </article>
+        </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+            <!-- poniendo card de clases grupales -->
+            <article class="card h-100">
+                 <div class="card-body d-flex flex-column">
+                  <div class="servicio-numero">
+                  09
+                    <i class="bi bi-people" aria-hidden="true"></i>
+              </div>
+                   <h3 class="h5">Clases grupales</h3>
+                  <p>Haz ejercicio con más personas y un instructor que les explique.</p>
+                  <p class="precio-servicio mt-auto">Incluido en la mensualidad</p>
+                <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+                </div>
+               </article>
+        </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <!-- poniendo card de plan de estudiantes -->
+              <article class="card h-100">
+              <div class="card-body d-flex flex-column">
+                   <div class="servicio-numero">
+                    10
+                  <i class="bi bi-mortarboard" aria-hidden="true"></i>
+              </div>
+                  <h3 class="h5">Plan para estudiantes</h3>
+                   <p>Si estudias, puedes pagar este plan mostrando tu credencial vigente.</p>
+                  <p class="precio-servicio mt-auto">$410 al mes</p>
+                  <a href="#contacto" class="btn btn-outline-dark">Pedir información</a>
+              </div>
+              </article>
+        </div>
+        </div>
+        </div>
+      </section>
+       <!-- componente adicional 1: acordeón -->
+      <section id="preguntas" class="py-5">
+    <div class="container">
+          <h2 class="titulo-seccion">PREGUNTAS FRECUENTES</h2>
+          <!-- preguntas que se abren al dar clic -->
+          <div class="accordion accordion-flush" id="preguntasGimnasio">
+             <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta1" aria-expanded="false" aria-controls="respuesta1">¿Qué necesito para inscribirme?</button>
+            </h3>
+          <div id="respuesta1" class="accordion-collapse collapse" data-bs-parent="#preguntasGimnasio">
+                 <div class="accordion-body">Trae una identificación. Si quieres el precio de estudiante, también necesitas tu credencial escolar vigente.</div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h3 class="accordion-header">
+                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta2" aria-expanded="false" aria-controls="respuesta2">¿Puedo empezar si nunca he entrenado?</button>
+          </h3>
+            <div id="respuesta2" class="accordion-collapse collapse" data-bs-parent="#preguntasGimnasio">
+                <div class="accordion-body">Sí, te podemos explicar cómo empezar y qué ejercicios hacer según tu nivel.</div>
+              </div>
+             </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta3" aria-expanded="false" aria-controls="respuesta3">¿Las clases están incluidas?</button>
+              </h3>
+               <div id="respuesta3" class="accordion-collapse collapse" data-bs-parent="#preguntasGimnasio">
+              <div class="accordion-body">Sí, las clases grupales van incluidas en el mes. Las consultas y el entrenamiento personal se pagan aparte.</div>
+              </div>
+            </div>
+        </div>
+    </div>
+      </section>
+      <!-- contacto -->
+      <section id="contacto" class="py-5">
+         <div class="container">
+          <div class="row g-5 align-items-center">
+        <div class="col-12 col-md-6">
+            <p class="subtitulo">¿TIENES DUDAS?</p>
+              <h2 class="titulo-seccion">ESCRÍBENOS</h2>
+               <p>Aquí puedes preguntar por los precios, las clases o los horarios.</p>
+            <p>
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                Lunes a viernes: 6:00 a 22:00
+            <br>
+                 Sábados: 8:00 a 14:00
+              </p>
+            </div>
+            <div class="col-12 col-md-6">
+               <!-- campos para escribir los datos -->
+               <form id="formularioContacto">
+                <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                  <input id="nombre" name="nombre" type="text" class="form-control" required>
+                 </div>
+              <div class="mb-3">
+                  <label for="correo" class="form-label">Correo electrónico</label>
+              <input id="correo" name="correo" type="email" class="form-control" required>
+              </div>
+                 <div class="mb-3">
+                  <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" class="form-control" rows="3" required></textarea>
+                </div>
+                <button class="btn btn-dark" type="button" disabled>ENVIAR</button>
+          </form>
+            </div>
+          </div>
+      </div>
+      </section>
+     </main>
+<!-- pie de página -->
+    <footer class="py-4">
+    <div class="container d-flex align-items-center justify-content-between footer-fila">
+      <a href="#inicio">
+        <img src="IMG/logo.png" class="logo-footer" alt="logo">
+      </a>
+      <p class="small mb-0">Miguel Velazquez LDSM403</p>
+      <!-- poniendo las redes en la misma fila -->
+      <div class="redes">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- componente adicional 2: modal -->
+<div class="modal fade" id="modalPlan" tabindex="-1" aria-labelledby="tituloPlan" aria-hidden="true">
+       <!-- ventana con los detalles del plan -->
+       <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="tituloPlan">Plan mensual para estudiantes</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+           </div>
+      <div class="modal-body">
+          <p class="fs-2 fw-bold">$410 MXN / mes</p>
+            <ul>
+              <li>Acceso a las instalaciones.</li>
+               <li>Clases grupales.</li>
+              <li>Ayuda para empezar tu rutina.</li>
+            </ul>
+        <p>Necesitas tu credencial escolar vigente. El entrenamiento personal y la consulta de alimentación se pagan aparte.</p>
+           </div>
+        <div class="modal-footer">
+            <button class="btn btn-dark" type="button" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+    </div>
+  <!-- archivo de bootstrap para el menú, carrusel y ventanas -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

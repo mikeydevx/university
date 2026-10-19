@@ -1,0 +1,385 @@
+/* estilos generales */
+/* tipo de letra de toda la página */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #151515;
+}
+
+/* quitando las esquinas redondas */
+.btn, .card, .form-control {
+  border-radius: 0;
+}
+
+/* tamaño de los botones */
+.btn {
+    padding: 12px 20px;
+  font-size: 13px;
+}
+/* poniendo el botón verde */
+.btn-verde {
+  background-color: #b5d374;
+    color: #111;
+}
+
+/* color del botón al pasar el mouse */
+.btn-verde:hover {
+  background-color: #c7e391;
+  color: #111;
+}
+/* separando la flechita */
+.btn span {
+    margin-left: 15px;
+}
+/* títulos de las secciones */
+.titulo-seccion {
+  font-size: 42px;
+  font-weight: bold;
+    margin-bottom: 25px;
+}
+/* textos pequeños arriba del título */
+.subtitulo {
+  color: #52672b;
+  font-size: 12px;
+    font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* menú */
+/* fondo oscuro del menú */
+.menu-principal {
+    background-color: rgba(0, 0, 0, 0.92);
+}
+/* letras del menú */
+.menu-principal .nav-link {
+  color: white;
+  font-size: 14px;
+}
+
+/* cambio de color al seleccionar un enlace */
+.menu-principal .nav-link:hover, .menu-principal .nav-link:focus {
+    color: #b5d374;
+}
+
+/* tamaño de los logos */
+#logo, .logo-footer {
+  width: 115px;
+  height: auto;
+}
+/* dejando espacio para el menú fijo */
+#inicio {
+    padding-top: 67px;
+}
+/* carrusel */
+#carouselExampleFade .carousel-item {
+  background-color: #111;
+}
+
+/* altura y recorte de las fotos */
+#carouselExampleFade .carousel-item img {
+    height: 430px;
+  object-fit: cover;
+
+}
+
+/* centrando el texto del carrusel */
+#carouselExampleFade .carousel-caption {
+    top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+
+/* color y tamaño del párrafo */
+#carouselExampleFade .carousel-caption p {
+    color: #c5e18d;
+  font-size: 16px;
+  letter-spacing: 5px;
+}
+
+/* títulos grandes del carrusel */
+#carouselExampleFade h1, #carouselExampleFade h2 {
+    font-size: 90px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* nosotros */
+/* fondo con la diagonal gris */
+#nosotros {
+  background: linear-gradient(135deg, #e2e2e2 35%, white 35%);
+}
+/* acomodando la foto de nosotros */
+.foto-nosotros {
+  width: 100%;
+    height: 350px;
+  object-fit: cover;
+}
+/* separando el texto de la foto */
+.texto-nosotros {
+  padding-left: 40px;
+}
+/* base para poner los dos títulos */
+.titulo-nosotros {
+    position: relative;
+  margin-bottom: 20px;
+}
+
+/* palabra verde de atrás */
+.titulo-nosotros span {
+  color: #b5d374;
+    font-size: 80px;
+  font-weight: bold;
+  line-height: 1;
+}
+/* título negro encima del verde */
+#nosotros h2 {
+    position: absolute;
+  top: 50%;
+  left: 15px;
+    transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: bold;
+    margin: 0;
+}
+/* color y espacio de los párrafos */
+#nosotros p {
+  color: #666;
+  line-height: 1.8;
+}
+
+/* planes */
+/* franja verde y diagonal blanca */
+#planes {
+  background: linear-gradient(135deg, white 12%, #b5d374 12%);
+  padding: 30px 0;
+    margin-top: 30px;
+}
+/* título blanco de planes */
+#planes h2 {
+  color: white;
+  font-size: 70px;
+    font-weight: bold;
+}
+/* haciendo grande el precio */
+.precio-plan {
+  font-size: 76px;
+  line-height: 1.2;
+    margin: 0;
+}
+/* acomodando la imagen del hombre */
+.imagen-plan {
+  display: block;
+  height: 360px;
+  object-fit: contain;
+    width: auto;
+  margin: auto;
+}
+
+/* servicios */
+/* fondo de servicios */
+#servicios {
+    margin-top: 35px;
+  background: linear-gradient(135deg, white 55%, #ededed 55%);
+}
+
+.servicios-imagen {
+  position: relative;
+    text-align: center;
+}
+.servicios-imagen h2 {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+.servicios-imagen img {
+    height: 360px;
+  object-fit: contain;
+}
+
+/* poniendo el ícono al lado del texto */
+.servicio-resumen {
+  display: flex;
+  gap: 22px;
+    margin-bottom: 30px;
+}
+
+/* tamaño de los íconos */
+.servicio-resumen i {
+  font-size: 36px;
+}
+
+.servicio-resumen h3 {
+  font-size: 15px;
+    font-weight: bold;
+}
+.servicio-resumen p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* galería y catálogo */
+#galeria, #preguntas {
+  background-color: #f1f1f1;
+}
+/* todas las fotos con la misma altura */
+#galeria img {
+  width: 100%;
+    height: 230px;
+  object-fit: cover;
+}
+/* texto debajo de cada foto */
+#galeria figcaption {
+  background-color: white;
+    padding: 12px;
+}
+
+#galeria figure {
+  margin: 0;
+}
+
+/* borde de las cards */
+#catalogo .card {
+  border: 1px solid #dedede;
+    border-top: 4px solid #b5d374;
+}
+/* espacio dentro de las cards */
+#catalogo .card-body {
+  padding: 25px;
+}
+/* números de los servicios */
+.servicio-numero {
+  color: #52672b;
+    font-size: 24px;
+  margin-bottom: 18px;
+}
+/* texto del precio en las cards */
+.precio-servicio {
+    font-size: 14px;
+  font-weight: bold;
+}
+
+/* fondo de los campos */
+.form-control {
+  background-color: #f1f1f1;
+}
+/* pie de página */
+/* colores de la parte de abajo */
+footer {
+    background: linear-gradient(135deg, #111 60%, #28321b 60%);
+  color: white;
+}
+
+/* enlaces del pie sin subrayado */
+footer a {
+  color: white;
+    text-decoration: none;
+}
+/* color al pasar por los enlaces */
+footer a:hover, footer a:focus {
+  color: #c5e18d;
+}
+/* separando los íconos de redes */
+.redes {
+  display: flex;
+    gap: 22px;
+  font-size: 24px;
+}
+/* computadoras: desde 992px */
+@media (min-width: 992px) {
+    #carouselExampleFade .carousel-item img {
+  height: 500px;
+    }
+    .imagen-plan {
+  position: relative;
+  top: -45px;
+    margin-bottom: -70px;
+    }
+    .texto-planes {
+    padding-left: 65px;
+    }
+}
+/* tabletas y pantallas menores: hasta 991px */
+@media (max-width: 991px) {
+    .titulo-seccion {
+  font-size: 34px;
+    }
+    .titulo-nosotros span {
+  font-size: 68px;
+    }
+    #planes h2 {
+  font-size: 55px;
+    }
+    .precio-plan {
+  font-size: 60px;
+    }
+    .texto-nosotros {
+  padding-left: 12px;
+    }
+    .servicios-imagen h2 {
+  font-size: 42px;
+    }
+
+}
+
+/* celulares: hasta 767px */
+@media (max-width: 767px) {
+    #carouselExampleFade .carousel-item img {
+  height: 350px;
+    }
+    #carouselExampleFade h1, #carouselExampleFade h2 {
+  font-size: 48px;
+    }
+    #carouselExampleFade .carousel-caption p {
+  font-size: 13px;
+  letter-spacing: 2px;
+    }
+    .titulo-seccion {
+  font-size: 30px;
+    }
+    .foto-nosotros {
+  height: 270px;
+    }
+    #nosotros h2 {
+  font-size: 20px;
+    }
+    #planes {
+  background: #b5d374;
+    margin-top: 0;
+    }
+    #planes h2 {
+    font-size: 48px;
+    }
+    .precio-plan {
+    font-size: 58px;
+    }
+    .imagen-plan {
+    height: 300px;
+    }
+    #servicios {
+    margin-top: 0;
+    }
+    footer {
+    background: #111;
+    }
+}
+
+/* espacio entre las partes del footer */
+.footer-fila {
+  gap: 16px;
+}
+
+/* footer más pequeño en celular, todo en una fila */
+@media (max-width: 575px) {
+  .footer-fila {
+    gap: 10px;
+  }
+  .footer-fila .logo-footer {
+    width: 65px;
+  }
+  .footer-fila p {
+    font-size: 10px;
+  }
+  .footer-fila .redes {
+    gap: 10px;
+    font-size: 18px;
+  }
+}
